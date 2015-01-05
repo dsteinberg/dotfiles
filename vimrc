@@ -4,7 +4,7 @@ set nocompatible
 filetype off " required!
 
 " vim-scripts repos: http://vim-scripts.org/vim/scripts.html
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " Easy plugin installer
