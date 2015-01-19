@@ -115,7 +115,7 @@ augroup END
 
 " Syntax Checking
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_python_checker_args='--ignore=E501,E225'
+"let g:syntastic_python_checker_args='--ignore=E501,E225'
 "let g:syntastic_cpp_compiler = 'g++'
 "let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall'
 
@@ -123,10 +123,6 @@ let g:syntastic_python_checker_args='--ignore=E501,E225'
 " NERDTree file browser
 nnoremap <leader>f :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
-
-
-" Supertab/Omnicomplete
-"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 
 " If you prefer the Omni-Completion tip window to close when a selection is
@@ -187,16 +183,3 @@ autocmd FileType markdown setlocal spell spelllang=en_au
 set backupdir=~/.tmp,~/tmp,/var/tmp,/tmp
 set undodir=~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.tmp,~/tmp,/var/tmp,/tmp
-
-
-" LaTeX Forward Sync (okular and evince)
-"function! SyncTexForward()
-"   let execstr = 'silent !okular --unique '.LatexBox_GetOutputFile().'\#src:'.line('.').expand("%:p").' &'
-   "let execstr = 'silent !evince_forward_search '.LatexBox_GetOutputFile().' '.line('.').' '.expand("%:p")
-   "exec execstr
-"endfunction
-"nmap <Leader>ls :call SyncTexForward()<CR>
-
-
-" LaTex Reverse Sync - copy this into okular (evince is harder, docs elsewhere):
-" gvim --servername GVIM --remote +%l %f
