@@ -115,7 +115,7 @@ augroup END
 
 " Syntax Checking
 let g:syntastic_cpp_check_header = 1
-"let g:syntastic_python_checker_args='--ignore=E501,E225'
+let g:syntastic_python_checker_args='--ignore=E501,E225'
 "let g:syntastic_cpp_compiler = 'g++'
 "let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall'
 
