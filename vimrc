@@ -28,7 +28,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 
-" Syntax checker (requires flake8, pyflakes, pylint packages)
+" Syntax checker (requires flake8 packages)
 Bundle 'scrooloose/syntastic'
 
 " Latex Environment (requires latekmk package)
@@ -115,7 +115,8 @@ augroup END
 
 " Syntax Checking
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_python_checker_args='--ignore=E501,E225'
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+"let g:syntastic_python_checker_args='--ignore=E501,E225'
 "let g:syntastic_cpp_compiler = 'g++'
 "let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall'
 
