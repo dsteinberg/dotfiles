@@ -18,7 +18,7 @@ Bundle 'jonathanfilip/vim-lucius'
 Bundle '29decibel/codeschool-vim-theme'
 Bundle 'vim-scripts/twilight'
 
-" Better tab completion
+" Better tab completion (install C++ bits with ./install.sh --clang-completer --system-libclang)
 Bundle 'Valloric/YouCompleteMe'
 
 " Comment-out stuff
