@@ -51,6 +51,7 @@ plugins=(git)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+export PYTHONPATH=$PYTHONPATH:$HOME/Code/mithlond:$HOME/Code/yavanna
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,3 +79,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim=vimx 
