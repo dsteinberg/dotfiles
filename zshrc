@@ -51,7 +51,8 @@ plugins=(git)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
-export PYTHONPATH=$PYTHONPATH:$HOME/Code/mithlond:$HOME/Code/yavanna
+#export PYTHONPATH=$PYTHONPATH:$HOME/Code/statbadger/mithlond:$HOME/Code/statbadger/yavanna
+export PYTHONPATH=$PYTHONPATH:$HOME/Code/statbadger:$HOME/Code/bdkd-external
 
 source $ZSH/oh-my-zsh.sh
 
