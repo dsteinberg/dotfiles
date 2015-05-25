@@ -104,6 +104,9 @@ nnoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 
+" Change indent continuously
+vmap < <gv
+vmap > >gv 
 
 " When vimrc is edited, reload it
 augroup filetype_vim
