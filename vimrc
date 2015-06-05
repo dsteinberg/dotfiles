@@ -26,7 +26,7 @@ Bundle 'scrooloose/nerdcommenter'
 
 " File Browser and finder
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
+"Bundle 'kien/ctrlp.vim'
 
 " Syntax checker (requires flake8 packages)
 Bundle 'scrooloose/syntastic'
@@ -47,7 +47,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 
 " Git Integration
-Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on " required!
 " End Vundle Stuff
