@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " Easy plugin installer
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " Nice colour styles
 Bundle 'jellybeans.vim'
