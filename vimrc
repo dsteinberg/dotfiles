@@ -28,7 +28,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'kien/ctrlp.vim'
 
-" Syntax checker (requires flake8 packages)
+" Syntax checker (requires flake8 packages, python3-flake8, python-flake8, pyflakes)
 Bundle 'scrooloose/syntastic'
 
 " Latex Environment (requires latekmk package)
