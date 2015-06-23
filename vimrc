@@ -88,25 +88,28 @@ colorscheme codeschool
 " GUI specific appearance
 if has('gui_running')
     set guioptions=agim
-    set guifont=Inconsolata\ for\ Powerline\ 13
-    "set guifont=Ubuntu\ Mono\ 12
+    set guifont=Inconsolata\ for\ Powerline\ 14
 endif
 
 
 " Misc Vim Settings
 set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
-noremap! jj <Esc>
-nnoremap <C-Tab> :bn<CR>
+noremap! kk <Esc>
+nnoremap <C-Tab>   :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
 nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 
-" Change indent continuously
-vmap < <gv
-vmap > >gv 
+" Change block indent continuously
+vmap <S-Tab> <gv
+vmap <Tab>   >gv 
+
+" One line indent
+nmap <S-Tab> <<
+nmap <Tab>   >>
 
 " When vimrc is edited, reload it
 augroup filetype_vim
