@@ -18,7 +18,9 @@ Bundle 'jonathanfilip/vim-lucius'
 Bundle '29decibel/codeschool-vim-theme'
 Bundle 'vim-scripts/twilight'
 
-" Better tab completion (install C++ bits with ./install.sh --clang-completer --system-libclang)
+" Better tab completion 
+"  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
+"  NOTE: if you are using python, make sure you install all the JEDI packages!
 Bundle 'Valloric/YouCompleteMe'
 
 " Comment-out stuff
@@ -28,19 +30,23 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'kien/ctrlp.vim'
 
-" Syntax checker (requires flake8 packages, python3-flake8, python-flake8, pyflakes)
+" Syntax checker 
+" NOTE: requires flake8 packages, python3-flake8, python-flake8, pyflakes
 Bundle 'scrooloose/syntastic'
 
-" Latex Environment (requires latekmk package)
+" Latex Environment
+"  NOTE: requires latekmk package
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 " Python Documentation Viewer
 Bundle 'fs111/pydoc.vim'
 
-" Nicer buffer information display (requires pip package?)
+" Nicer buffer information display 
+"  NOTE: requires pip package?
 Bundle 'bling/vim-airline'
 
-" List tags, object properties etc (needs exuberant-ctags packages)
+" List tags, object properties etc 
+" NOTE: needs exuberant-ctags packages
 Bundle 'majutsushi/tagbar'
 
 " Buffer Displays
