@@ -23,6 +23,9 @@ Bundle 'vim-scripts/twilight'
 "  NOTE: if you are using python, make sure you install all the JEDI packages!
 Bundle 'Valloric/YouCompleteMe'
 
+" Python tab completion
+Bundle 'davidhalter/jedi-vim'
+
 " Comment-out stuff
 Bundle 'scrooloose/nerdcommenter'
 
@@ -156,10 +159,11 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" YouCompleteMe setting
+" YouCompleteMe settings, (using Jedi for python)
 let g:ycm_filetype_blacklist = {
       \ 'tex' : 1,
       \ 'latex' : 1,
+      \ 'python': 1,
       \}
 
 
