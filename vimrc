@@ -163,7 +163,6 @@ let g:tagbar_left = 1
 let g:ycm_filetype_blacklist = {
       \ 'tex' : 1,
       \ 'latex' : 1,
-      \ 'python': 1,
       \}
 
 
