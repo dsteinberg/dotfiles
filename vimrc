@@ -150,23 +150,29 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
 
 " BufferGator Settings
-" let g:buffergator_suppress_keymaps = 1
+let g:buffergator_suppress_keymaps = 1
 let g:buffergator_autoexpand_on_split = 1
+" nnoremap <leader>T :BufferGatorTabsOpen<CR>
 nnoremap <leader>b :BuffergatorToggle<CR>
 nnoremap gb        :BuffergatorMruCyclePrev<CR>
 nnoremap gB        :BuffergatorMruCycleNext<CR>
+
 
 " TagBar settings
 nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" YouCompleteMe settings, (using Jedi for python)
+" YouCompleteMe settings (using Jedi for python)
 let g:ycm_filetype_blacklist = {
       \ 'tex' : 1,
       \ 'latex' : 1,
       \}
 
+" Jedi settings (mainly to stop hints unless called for)
+" autocmd FileType python setlocal completeopt-=preview 
+" let g:jedi#show_call_signatures = 0
+" let g:jedi#popup_on_dot = 0
 
 " LaTeX-Box Settings
 let g:LatexBox_viewer = 'evince'
