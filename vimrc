@@ -8,55 +8,56 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " Easy plugin installer
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " Nice colour styles
-Bundle 'jellybeans.vim'
-Bundle 'jnurmine/Zenburn'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'jonathanfilip/vim-lucius'
-Bundle '29decibel/codeschool-vim-theme'
-Bundle 'vim-scripts/twilight'
+Plugin 'jellybeans.vim'
+Plugin 'jnurmine/Zenburn'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin '29decibel/codeschool-vim-theme'
+Plugin 'vim-scripts/twilight'
 
 " Better tab completion 
 "  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
 "  NOTE: if you are using python, make sure you install all the JEDI packages!
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " Python tab completion
-Bundle 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 
 " Comment-out stuff
-Bundle 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-commentary'
 
 " File Browser and finder
-Bundle 'scrooloose/nerdtree'
-"Bundle 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 
 " Syntax checker 
 " NOTE: requires flake8 packages, python3-flake8, python-flake8, pyflakes
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " Latex Environment
 "  NOTE: requires latekmk package
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " Python Documentation Viewer
-Bundle 'fs111/pydoc.vim'
+Plugin 'fs111/pydoc.vim'
 
 " Nicer buffer information display 
 "  NOTE: requires pip package?
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " List tags, object properties etc 
 " NOTE: needs exuberant-ctags packages
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 
 " Buffer Displays
-Bundle 'jeetsukumaran/vim-buffergator'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 " Git Integration
-"Bundle 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 filetype plugin indent on " required!
 " End Vundle Stuff
@@ -104,7 +105,7 @@ endif
 " Misc Vim Settings
 set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
-noremap! kk <Esc>
+noremap! jk <Esc>
 nnoremap <C-Tab>   :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
 nnoremap <Up>    <NOP>
@@ -149,10 +150,11 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
 
 " BufferGator Settings
-let g:buffergator_suppress_keymaps = 1
+" let g:buffergator_suppress_keymaps = 1
 let g:buffergator_autoexpand_on_split = 1
 nnoremap <leader>b :BuffergatorToggle<CR>
-
+nnoremap gb        :BuffergatorMruCyclePrev<CR>
+nnoremap gB        :BuffergatorMruCycleNext<CR>
 
 " TagBar settings
 nnoremap <leader>t :TagbarOpenAutoClose<CR>
