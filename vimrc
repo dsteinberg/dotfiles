@@ -23,15 +23,11 @@ Plugin 'vim-scripts/twilight'
 "  NOTE: if you are using python, make sure you install all the JEDI packages!
 Plugin 'Valloric/YouCompleteMe'
 
-" Python tab completion
-Plugin 'davidhalter/jedi-vim'
-
 " Comment-out stuff
-"Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-commentary'
 
 " File Browser and finder
-"Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 
 " Syntax checker 
@@ -57,7 +53,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'jeetsukumaran/vim-buffergator'
 
 " Git Integration
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 filetype plugin indent on " required!
 " End Vundle Stuff
@@ -85,14 +81,14 @@ set lazyredraw
 set number
 set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
-"set relativenumber
-"colorscheme zenburn
+" set relativenumber
+" colorscheme zenburn
 colorscheme codeschool
-"colorscheme twilight
-"colorscheme hybrid
-"colorscheme lucius
-"colorscheme jellybeans
-"highlight ColorColumn guibg=#292929
+" colorscheme twilight
+" colorscheme hybrid
+" colorscheme lucius
+" colorscheme jellybeans
+" highlight ColorColumn guibg=#292929
 
 
 " GUI specific appearance
@@ -106,8 +102,12 @@ endif
 set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
 noremap! jk <Esc>
+
+" Fast buffer changing
 nnoremap <C-Tab>   :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
+
+" Remove temptation
 nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
@@ -129,12 +129,13 @@ augroup filetype_vim
 augroup END
 
 
-" Syntax Checking
+" Syntax Checking and Documentation
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
-"let g:syntastic_python_checker_args='--ignore=E501,E225'
-"let g:syntastic_cpp_compiler = 'g++'
-"let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall'
+let g:pydoc_cmd = 'python3 -m pydoc'
+" let g:syntastic_python_checker_args='--ignore=E501,E225'
+" let g:syntastic_cpp_compiler = 'g++'
+" let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall'
 
 
 " NERDTree file browser
@@ -146,7 +147,7 @@ let g:NERDTreeQuitOnOpen = 1
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 
 " BufferGator Settings
@@ -163,16 +164,12 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" YouCompleteMe settings (using Jedi for python)
+" YouCompleteMe settings
 let g:ycm_filetype_blacklist = {
       \ 'tex' : 1,
       \ 'latex' : 1,
       \}
 
-" Jedi settings (mainly to stop hints unless called for)
-" autocmd FileType python setlocal completeopt-=preview 
-" let g:jedi#show_call_signatures = 0
-" let g:jedi#popup_on_dot = 0
 
 " LaTeX-Box Settings
 let g:LatexBox_viewer = 'evince'
