@@ -36,7 +36,7 @@ Plugin 'scrooloose/syntastic'
 
 " Latex Environment
 "  NOTE: requires latekmk package
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 
 " Python Documentation Viewer
 Plugin 'fs111/pydoc.vim'
@@ -133,9 +133,6 @@ augroup END
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:pydoc_cmd = 'python3 -m pydoc'
-" let g:syntastic_python_checker_args='--ignore=E501,E225'
-" let g:syntastic_cpp_compiler = 'g++'
-" let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall'
 
 
 " NERDTree file browser
@@ -164,18 +161,22 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" YouCompleteMe settings
-let g:ycm_filetype_blacklist = {
-      \ 'tex' : 1,
-      \ 'latex' : 1,
-      \}
+" YouCompleteMe settings, completion setting for vimtex
+if !exists('g:ycm_semantic_triggers')
+let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+    \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
+    \ ]
 
 
-" LaTeX-Box Settings
-let g:LatexBox_viewer = 'evince'
-let g:LatexBox_ref_pattern = '\c\\\a*ref\*\?\_\s*{' " complete all ref commands
-let g:LatexBox_latexmk_options = '-bibtex' " put -c for continuous compilation
-let g:LatexBox_show_warnings = 0
+"use omnicomplete whenever there's no completion engine in youcompleteme (for
+"example, in the case of PHP)
+set omnifunc=syntaxcomplete#Complete
+
+
+" Vimtex Setting
+" let g:vimtex_view_method = 'zathura'
 
 
 " Airline settings
