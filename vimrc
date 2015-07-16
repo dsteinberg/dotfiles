@@ -36,10 +36,13 @@ Plugin 'scrooloose/syntastic'
 
 " Latex Environment
 "  NOTE: requires latekmk package
-Plugin 'lervag/vimtex'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " Python Documentation Viewer
 Plugin 'fs111/pydoc.vim'
+
+" Python PEP8 indentation
+Plugin 'hynek/vim-python-pep8-indent'
 
 " Nicer buffer information display 
 "  NOTE: requires pip package?
@@ -175,8 +178,11 @@ let g:ycm_semantic_triggers.tex = [
 set omnifunc=syntaxcomplete#Complete
 
 
-" Vimtex Setting
-" let g:vimtex_view_method = 'zathura'
+" LaTeX-Box Settings
+let g:LatexBox_viewer = 'evince'
+let g:LatexBox_ref_pattern = '\c\\\a*ref\*\?\_\s*{' " complete all ref commands
+let g:LatexBox_latexmk_options = '-bibtex' " put -c for continuous compilation
+let g:LatexBox_show_warnings = 0
 
 
 " Airline settings
