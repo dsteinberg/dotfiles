@@ -124,6 +124,9 @@ vmap <Tab>   >gv
 nmap <S-Tab> <<
 nmap <Tab>   >>
 
+" Completion
+inoremap <C-Space> <C-x><C-o>
+
 " When vimrc is edited, reload it
 augroup filetype_vim
     autocmd!
@@ -164,7 +167,7 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" YouCompleteMe settings, completion setting for vimtex
+" YouCompleteMe settings, completion setting for latex
 if !exists('g:ycm_semantic_triggers')
 let g:ycm_semantic_triggers = {}
 endif
