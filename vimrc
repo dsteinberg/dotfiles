@@ -22,6 +22,24 @@ Plugin 'vim-scripts/twilight'
 "  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
 "  NOTE: if you are using python, make sure you install all the JEDI packages,
 "   and ALSO python-vim!!! 
+"  NOTE: This requires python2, if you have a python3 sytem default, you can
+"   use vitualenv to create a temporary environment:
+"   Use this to create your temporary python 'install' (Assuming that is the 
+"   correct path to the python iterpreter you want to use.)
+"   
+"   $ virtualenv -p /usr/bin/python2.7 --distribute temp-python
+"   
+"   Type this command when you want to use your temporary python. While you are 
+"   using your temporary python you will also have access to a temporary pip,
+"   which will keep all packages installed with it seperate from your main
+"   python install. A shorter version of this command would be 
+"   '. temp-python/bin/activate'
+"
+"   $ source temp-python/bin/activate
+"   
+"   When you no longer whish to use you temporary python type
+"
+"   $ deactivate
 Plugin 'Valloric/YouCompleteMe'
 
 " Comment-out stuff
