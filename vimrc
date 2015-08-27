@@ -20,7 +20,8 @@ Plugin 'vim-scripts/twilight'
 
 " Better tab completion 
 "  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
-"  NOTE: if you are using python, make sure you install all the JEDI packages!
+"  NOTE: if you are using python, make sure you install all the JEDI packages,
+"   and ALSO python-vim!!! 
 Plugin 'Valloric/YouCompleteMe'
 
 " Comment-out stuff
