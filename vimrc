@@ -142,7 +142,7 @@ augroup END
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:pydoc_cmd = 'python3 -m pydoc'
-let g:syntastic_python_flake8_args='--ignore=W503'
+let g:syntastic_python_flake8_args='--ignore=W503,E731'
 
 
 " NERDTree file browser
