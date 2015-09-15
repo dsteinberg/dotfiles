@@ -61,7 +61,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 " Git Integration
 Plugin 'tpope/vim-fugitive'
 
-" Haskell Syntax
+" Haskell Syntax (cabal install hdevtools)
 Plugin 'bitc/vim-hdevtools'
 Plugin 'dag/vim2hs'
 
