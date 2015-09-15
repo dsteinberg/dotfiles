@@ -61,6 +61,10 @@ Plugin 'jeetsukumaran/vim-buffergator'
 " Git Integration
 Plugin 'tpope/vim-fugitive'
 
+" Haskell Syntax
+Plugin 'bitc/vim-hdevtools'
+Plugin 'dag/vim2hs'
+
 filetype plugin indent on " required!
 " End Vundle Stuff
 
