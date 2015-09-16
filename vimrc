@@ -93,9 +93,9 @@ set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
 " set relativenumber
 " colorscheme zenburn
-colorscheme codeschool
+" colorscheme codeschool
 " colorscheme twilight
-" colorscheme hybrid
+colorscheme hybrid
 " colorscheme lucius
 " colorscheme jellybeans
 " highlight ColorColumn guibg=#292929
@@ -147,6 +147,10 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:pydoc_cmd = 'python3 -m pydoc'
 let g:syntastic_python_flake8_args='--ignore=W503,E731'
+
+
+" Color Scheme options
+" set g:lucius_style='dark'
 
 
 " NERDTree file browser
