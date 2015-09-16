@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jellybeans.vim'
 Plugin 'jnurmine/Zenburn'
 Plugin 'w0ng/vim-hybrid'
-Plugin 'jonathanfilip/vim-lucius'
 Plugin '29decibel/codeschool-vim-theme'
 Plugin 'vim-scripts/twilight'
 
