@@ -16,6 +16,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'w0ng/vim-hybrid'
 Plugin '29decibel/codeschool-vim-theme'
 Plugin 'vim-scripts/twilight'
+Plugin 'jonathanfilip/vim-lucius'
 
 " Better tab completion 
 "  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
@@ -90,11 +91,13 @@ set lazyredraw
 set number
 set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
+set background=dark
 " set relativenumber
 " colorscheme zenburn
 " colorscheme codeschool
 " colorscheme twilight
 colorscheme hybrid
+" colorscheme lucius
 " colorscheme jellybeans
 " highlight ColorColumn guibg=#292929
 
