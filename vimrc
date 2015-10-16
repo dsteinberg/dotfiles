@@ -30,7 +30,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-commentary'
 
 " File Browser and finder
-" Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 
 " Syntax checker 
@@ -62,8 +62,8 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-fugitive'
 
 " Haskell Syntax (cabal install hdevtools)
-Plugin 'bitc/vim-hdevtools'
-Plugin 'dag/vim2hs'
+" Plugin 'bitc/vim-hdevtools'
+" Plugin 'dag/vim2hs'
 
 filetype plugin indent on " required!
 " End Vundle Stuff
