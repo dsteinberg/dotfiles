@@ -88,3 +88,7 @@ alias paclocs='pacaur -Qs' # Search for package(s) in the local database
 alias pacupd='sudo pacman -Sy' # Update and refresh the local package and ABS databases against repositories
 alias pacinsd='sudo pacman -S --asdeps' # Install given package(s) as dependencies of another package
 alias pacmir='sudo pacman -Syy' # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+
+# The Lachy switch
+alias asdf='setxkbmap dvorak'
+alias aoeu='setxkbmap us'
