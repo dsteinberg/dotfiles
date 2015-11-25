@@ -1,22 +1,14 @@
 set nocompatible
 
-" Begin Vundle Stuff
-filetype off " required!
-
-" vim-scripts repos: http://vim-scripts.org/vim/scripts.html
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-
-" Easy plugin installer
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Nice colour styles
-Plugin 'jellybeans.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'w0ng/vim-hybrid'
-Plugin '29decibel/codeschool-vim-theme'
-Plugin 'vim-scripts/twilight'
-Plugin 'jonathanfilip/vim-lucius'
+Plug 'jellybeans.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'w0ng/vim-hybrid'
+Plug '29decibel/codeschool-vim-theme'
+Plug 'vim-scripts/twilight'
+Plug 'jonathanfilip/vim-lucius'
 
 " Better tab completion 
 "  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
@@ -24,49 +16,48 @@ Plugin 'jonathanfilip/vim-lucius'
 "   (python2) and ALSO python-vim (python 2)!!! 
 "  NOTE: This requires python2, it may be worth modifying the install.py script
 "   python_binary = '/usr/bin/python2'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 " Comment-out stuff
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 " File Browser and finder
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
 
 " Syntax checker 
 " NOTE: requires flake8 packages, python3-flake8, python-flake8, pyflakes
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Latex Environment
 "  NOTE: requires latekmk package
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Python Documentation Viewer
-Plugin 'fs111/pydoc.vim'
+Plug 'fs111/pydoc.vim'
 
 " Python PEP8 indentation
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent'
 
 " Nicer buffer information display 
 "  NOTE: requires pip package?
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " List tags, object properties etc 
 " NOTE: needs exuberant-ctags packages
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " Buffer Displays
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'jeetsukumaran/vim-buffergator'
 
 " Git Integration
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Haskell Syntax (cabal install hdevtools)
-" Plugin 'bitc/vim-hdevtools'
-" Plugin 'dag/vim2hs'
+" Plug 'bitc/vim-hdevtools'
+" Plug 'dag/vim2hs'
 
-filetype plugin indent on " required!
-" End Vundle Stuff
+call plug#end()
 
 
 " Default Formatting and Indenting
