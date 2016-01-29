@@ -16,6 +16,7 @@ Plug 'jonathanfilip/vim-lucius'
 "   (python2) and ALSO python-vim (python 2)!!! 
 "  NOTE: This requires python2, it may be worth modifying the install.py script
 "   python_binary = '/usr/bin/python2'
+"  NOTE: You may need to install python-vim from pip (and pip2)
 Plug 'Valloric/YouCompleteMe'
 
 " Comment-out stuff
