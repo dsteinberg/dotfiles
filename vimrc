@@ -42,7 +42,8 @@ Plug 'hynek/vim-python-pep8-indent'
 
 " Nicer buffer information display 
 "  NOTE: requires pip package?
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " List tags, object properties etc 
 " NOTE: needs exuberant-ctags packages
