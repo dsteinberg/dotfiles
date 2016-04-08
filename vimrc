@@ -17,7 +17,10 @@ Plug 'jonathanfilip/vim-lucius'
 "  NOTE: This requires python2, it may be worth modifying the install.py script
 "   python_binary = '/usr/bin/python2'
 "  NOTE: You may need to install python-vim from pip (and pip2)
-Plug 'Valloric/YouCompleteMe'
+"  NOTE: On Arch, you may need the aur/libtinfo package for an appropriate
+"   simlink
+" Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/neocomplete.vim'
 
 " Comment-out stuff
 Plug 'tpope/vim-commentary'
@@ -102,14 +105,17 @@ if has('gui_running')
 endif
 
 
+
 " Misc Vim Settings
 set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
 noremap! jk <Esc>
 
+
 " Fast buffer changing
 nnoremap <C-Tab>   :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
+
 
 " Remove temptation
 nnoremap <Up>    <NOP>
@@ -117,16 +123,50 @@ nnoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 
+
 " Change block indent continuously
 vmap <S-Tab> <gv
 vmap <Tab>   >gv 
+
 
 " One line indent
 nmap <S-Tab> <<
 nmap <Tab>   >>
 
+
 " Completion
 inoremap <C-Space> <C-x><C-o>
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
 
 " When vimrc is edited, reload it
 augroup filetype_vim
