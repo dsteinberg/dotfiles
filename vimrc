@@ -210,15 +210,6 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" YouCompleteMe settings, completion setting for latex
-if !exists('g:ycm_semantic_triggers')
-let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-    \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
-    \ ]
-
-
 "use omnicomplete whenever there's no completion engine in youcompleteme (for
 "example, in the case of PHP)
 set omnifunc=syntaxcomplete#Complete
@@ -251,6 +242,7 @@ let g:tex_flavor='latex'
 " TXT and MD editing setup
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_au
 autocmd FileType markdown setlocal spell spelllang=en_au
+autocmd FileType rst setlocal spell spelllang=en_au
 
 
 " Make tmp dirs in standard places
