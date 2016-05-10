@@ -102,7 +102,7 @@ colorscheme hybrid
 if has('gui_running')
     set guioptions=agim
     " set guifont=Inconsolata\ for\ Powerline\ 14
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 13
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 13
 endif
 
 
