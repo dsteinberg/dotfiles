@@ -28,6 +28,7 @@ Plug 'jonathanfilip/vim-lucius'
 "   simlink
 " Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/neocomplete.vim'
+Plug 'davidhalter/jedi-vim'
 
 " Comment-out stuff
 Plug 'tpope/vim-commentary'
@@ -104,7 +105,6 @@ colorscheme hybrid
 " colorscheme jellybeans
 " highlight ColorColumn guibg=#292929
 
-
 " GUI specific appearance
 if has('gui_running')
     set guioptions=agim
@@ -112,7 +112,6 @@ if has('gui_running')
     " set guifont=Anonymous\ Pro\ for\ Powerline\ 14
     " set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 11.8
 endif
-
 
 
 " Misc Vim Settings
@@ -168,7 +167,8 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -176,6 +176,16 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
+" Python specific - neocomplete and jedi
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:neocomplete#force_omni_input_patterns.python =
+\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
 
 " When vimrc is edited, reload it
 augroup filetype_vim
@@ -234,6 +244,7 @@ let g:LatexBox_show_warnings = 0
 let g:airline_powerline_fonts = 1  " This needs the powerline fonts
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#show_buffers = 1
 
 
 " HTML editing setup
