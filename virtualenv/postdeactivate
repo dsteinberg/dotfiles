@@ -1,6 +1,6 @@
 #!/bin/zsh
 # This hook is sourced after every virtualenv is deactivated.
-if [ "$virenv" = "manifold" ]; then
+if [ "$virenv" = "manifold-api" ]; then
     echo "De-activating minikube docker env..."
     unset DOCKER_TLS_VERIFY
     unset DOCKER_HOST
