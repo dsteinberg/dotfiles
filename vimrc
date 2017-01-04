@@ -28,6 +28,7 @@ Plug 'jonathanfilip/vim-lucius'
 "   simlink
 " Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/deocomplete.vim'
 Plug 'davidhalter/jedi-vim'
 
 " Comment-out stuff
