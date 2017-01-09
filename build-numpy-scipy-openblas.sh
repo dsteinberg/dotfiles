@@ -25,11 +25,34 @@ echo "Installing cython and openblas"
 pacaur -S --needed openblas-lapack
 pip install cython
 
+# Somehow each version of numpy/scipy have different archive formats...
+# http://askubuntu.com/questions/57981/command-line-archive-manager-extracter
+# we could also use file-roller or dtrx, but that is an extra dep...
+extract () {
+   if [ -f $1 ] ; then
+      case $1 in
+         *.tar.bz2)   tar xjf $1      ;;
+         *.tar.gz)   tar xzf $1      ;;
+         *.bz2)      bunzip2 $1      ;;
+         *.rar)      rar x $1      ;;
+         *.gz)      gunzip $1      ;;
+         *.tar)      tar xf $1      ;;
+         *.tbz2)      tar xjf $1      ;;
+         *.tgz)      tar xzf $1      ;;
+         *.zip)      unzip $1      ;;
+         *.Z)      uncompress $1   ;;
+         *)         echo "'$1' cannot be extracted via extract()" ;;
+      esac
+   else
+      echo "'$1' is not a valid file"
+   fi
+}
+
 echo "Building and installing Numpy $NUMPY_VERSION"
 mkdir -p /tmp/src
 cd /tmp/src
 pip3 download --no-binary :all: numpy==${NUMPY_VERSION}
-tar -xvzf numpy-${NUMPY_VERSION}.tar.gz
+extract numpy-${NUMPY_VERSION}.*
 cd /tmp/src/numpy-${NUMPY_VERSION}
 curl -o site.cfg https://raw.githubusercontent.com/determinant-io/manifold-docker/develop/inference/numpy.site.cfg\?token\=ADD9zMv7g7nNnj_RBg_QwldNWpihiE3Rks5YfBGXwA%3D%3D
 python3 setup.py build -j ${BUILD_CPUS}
@@ -38,7 +61,7 @@ python3 setup.py install
 echo "Building and installing Scipy $SCIPY_VERSION"
 cd /tmp/src
 pip3 download --no-binary :all: scipy==${SCIPY_VERSION}
-tar -xvzf scipy-${SCIPY_VERSION}.tar.gz
+extract scipy-${SCIPY_VERSION}.*
 cd /tmp/src/scipy-${SCIPY_VERSION}
 curl -o site.cfg https://raw.githubusercontent.com/determinant-io/manifold-docker/develop/inference/scipy.site.cfg?token=ADD9zEqw38ciR4Nfhx_7V7N4e-zO7oocks5YfBU8wA%3D%3D
 python3 setup.py build -j ${BUILD_CPUS}
