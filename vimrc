@@ -110,8 +110,10 @@ colorscheme hybrid
 if has('gui_running')
     set guioptions=agim
     set guifont=Inconsolata\ for\ Powerline\ 14
+    " set guifont=Roboto\ Mono\ for\ Powerline\ 13
+    " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 13
     " set guifont=Anonymous\ Pro\ for\ Powerline\ 14
-    " set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 11.8
+    " set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 13
 endif
 
 

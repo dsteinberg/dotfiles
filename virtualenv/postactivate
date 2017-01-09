@@ -1,8 +1,2 @@
 #!/bin/zsh
 # This hook is sourced after every virtualenv is activated.
-# TODO: only set this if minikube is running?
-virenv="`basename \"$VIRTUAL_ENV\"`"
-if [ "$virenv" = "manifold-api" ]; then
-    echo "Activating minikube docker env..."
-    eval $(minikube docker-env) 
-fi
