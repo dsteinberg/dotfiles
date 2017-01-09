@@ -1,4 +1,5 @@
 # Paths
+# source /etc/profile
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
