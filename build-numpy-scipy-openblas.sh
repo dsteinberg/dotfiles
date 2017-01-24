@@ -59,7 +59,22 @@ cd /tmp/src
 pip3 download --no-binary :all: numpy==${NUMPY_VERSION}
 extract numpy-${NUMPY_VERSION}.*
 cd /tmp/src/numpy-${NUMPY_VERSION}
-curl -o site.cfg https://raw.githubusercontent.com/determinant-io/manifold-docker/develop/inference/numpy.site.cfg\?token\=ADD9zMv7g7nNnj_RBg_QwldNWpihiE3Rks5YfBGXwA%3D%3D
+
+# write config file
+cat > site.cfg <<- EOM
+[ALL]
+include_dirs = /usr/include/openblas
+library_dirs = /usr/lib
+
+[openblas]
+openblas_libs = openblas
+library_dirs = /usr/lib
+
+[lapack]
+lapack_libs = openblas
+library_dirs = /usr/lib
+EOM
+
 python3 setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS}
 python3 setup.py install --optimize=1
 
@@ -69,7 +84,13 @@ cd /tmp/src
 pip3 download --no-binary :all: scipy==${SCIPY_VERSION}
 extract scipy-${SCIPY_VERSION}.*
 cd /tmp/src/scipy-${SCIPY_VERSION}
-curl -o site.cfg https://raw.githubusercontent.com/determinant-io/manifold-docker/develop/inference/scipy.site.cfg?token=ADD9zEqw38ciR4Nfhx_7V7N4e-zO7oocks5YfBU8wA%3D%3D
+
+# write config file
+cat > site.cfg <<- EOM
+[openblas]
+library_dirs = /usr/lib
+EOM
+
 # python3 setup.py config_fc --fcompiler=gnu95 build -j4 # Fails on Arch!
 python3 setup.py config_fc --fcompiler=gnu95 build
 python3 setup.py install --optimize=1
