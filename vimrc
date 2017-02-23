@@ -18,19 +18,21 @@ Plug 'vim-scripts/twilight'
 Plug 'jonathanfilip/vim-lucius'
 
 " Better tab completion 
-"  NOTE: install C++ bits with ./install.sh --clang-completer --system-libclang
 "  NOTE: if you are using python, make sure you install all the JEDI packages,
 "   (python2) and ALSO python-vim (python 2)!!! 
-"  NOTE: This requires python2, it may be worth modifying the install.py script
-"   python_binary = '/usr/bin/python2'
 "  NOTE: You may need to install python-vim from pip (and pip2)
 "  NOTE: On Arch, you may need the aur/libtinfo package for an appropriate
 "   simlink
-" Plug 'Valloric/YouCompleteMe'
 " Plug 'Shougo/neocomplete.vim'
 " Plug 'Shougo/deocomplete.vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'maralla/completor.vim'
-Plug 'davidhalter/jedi-vim'
+
+" Python Documentation Viewer
+Plug 'fs111/pydoc.vim'
+
+" Python PEP8 indentation
+Plug 'hynek/vim-python-pep8-indent'
 
 " Comment-out stuff
 Plug 'tpope/vim-commentary'
@@ -47,12 +49,6 @@ Plug 'scrooloose/syntastic'
 "  NOTE: requires latekmk package
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 
-" Python Documentation Viewer
-Plug 'fs111/pydoc.vim'
-
-" Python PEP8 indentation
-Plug 'hynek/vim-python-pep8-indent'
-
 " Nicer buffer information display 
 "  NOTE: requires pip package?
 Plug 'vim-airline/vim-airline'
@@ -67,10 +63,6 @@ Plug 'jeetsukumaran/vim-buffergator'
 
 " Git Integration
 Plug 'tpope/vim-fugitive'
-
-" Haskell Syntax (cabal install hdevtools)
-" Plug 'bitc/vim-hdevtools'
-" Plug 'dag/vim2hs'
 
 call plug#end()
 
@@ -151,14 +143,6 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 
 " When vimrc is edited, reload it
 augroup filetype_vim
@@ -170,8 +154,8 @@ augroup END
 
 " Syntax Checking and Documentation
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:pydoc_cmd = 'python3 -m pydoc'
+" let g:syntastic_python_python_exec = '/usr/bin/python3'
+" let g:pydoc_cmd = 'python -m pydoc'
 let g:syntastic_python_flake8_args='--ignore=W503,E731'
 
 
