@@ -23,9 +23,6 @@ Plug 'jonathanfilip/vim-lucius'
 "  NOTE: You may need to install python-vim from pip (and pip2)
 "  NOTE: On Arch, you may need the aur/libtinfo package for an appropriate
 "   simlink
-" Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/deocomplete.vim'
-" Plug 'davidhalter/jedi-vim'
 Plug 'maralla/completor.vim'
 
 " Python Documentation Viewer
@@ -43,7 +40,7 @@ Plug 'scrooloose/nerdtree'
 
 " Syntax checker 
 " NOTE: requires flake8 packages, python3-flake8, python-flake8, pyflakes
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 " Latex Environment
 "  NOTE: requires latekmk package
@@ -51,8 +48,10 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Nicer buffer information display 
 "  NOTE: requires pip package?
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'taohex/lightline-buffer'
 
 " List tags, object properties etc 
 " NOTE: needs exuberant-ctags packages
@@ -87,6 +86,7 @@ set scrolloff=10
 set ttyfast
 set lazyredraw
 set number
+set showtabline=2
 set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
 set background=dark
@@ -153,10 +153,8 @@ augroup END
 
 
 " Syntax Checking and Documentation
-let g:syntastic_cpp_check_header = 1
-" let g:syntastic_python_python_exec = '/usr/bin/python3'
-" let g:pydoc_cmd = 'python -m pydoc'
-let g:syntastic_python_flake8_args='--ignore=W503,E731'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 " NERDTree file browser
@@ -187,7 +185,7 @@ let g:tagbar_left = 1
 
 "use omnicomplete whenever there's no completion engine in youcompleteme (for
 "example, in the case of PHP)
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 
 " LaTeX-Box Settings
@@ -197,11 +195,29 @@ let g:LatexBox_latexmk_options = '-bibtex' " put -c for continuous compilation
 let g:LatexBox_show_warnings = 0
 
 
-" Airline settings
-let g:airline_powerline_fonts = 1  " This needs the powerline fonts
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = ' '
-let g:airline#extensions#tabline#show_buffers = 1
+" Powerline settings
+" let g:airline_powerline_fonts = 1  " This needs the powerline fonts
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_alt_sep = ' '
+" let g:airline#extensions#tabline#show_buffers = 1
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'tabline': {
+        \ 'left': [[ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ],],
+        \ 'right': [[ 'close' ],],
+        \ },
+    \ 'component_expand': {
+        \ 'buffercurrent': 'lightline#buffer#buffercurrent2',
+        \ },
+    \ 'component_type': {
+        \ 'buffercurrent': 'tabsel',
+        \ },
+    \ 'component_function': {
+        \ 'bufferbefore': 'lightline#buffer#bufferbefore',
+        \ 'bufferafter': 'lightline#buffer#bufferafter',
+        \ 'bufferinfo': 'lightline#buffer#bufferinfo',
+        \ },
+    \ }
 
 
 " HTML editing setup
