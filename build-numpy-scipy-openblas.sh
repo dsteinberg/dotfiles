@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
-read -p "Numpy version [1.11.2]: " NUMPY_VERSION
-NUMPY_VERSION=${NUMPY_VERSION:-'1.11.2'}
+read -p "Numpy version [1.12.0]: " NUMPY_VERSION
+NUMPY_VERSION=${NUMPY_VERSION:-'1.12.0'}
 read -p "Scipy version [0.18.1]: " SCIPY_VERSION
 SCIPY_VERSION=${SCIPY_VERSION:-'0.18.1'}
 read -p "Number of build cores [1]:" BUILD_CPUS
