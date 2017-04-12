@@ -183,11 +183,6 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-"use omnicomplete whenever there's no completion engine in youcompleteme (for
-"example, in the case of PHP)
-" set omnifunc=syntaxcomplete#Complete
-
-
 " LaTeX-Box Settings
 let g:LatexBox_viewer = 'evince'
 let g:LatexBox_ref_pattern = '\c\\\a*ref\*\?\_\s*{' " complete all ref commands
@@ -196,10 +191,6 @@ let g:LatexBox_show_warnings = 0
 
 
 " Powerline settings
-" let g:airline_powerline_fonts = 1  " This needs the powerline fonts
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_alt_sep = ' '
-" let g:airline#extensions#tabline#show_buffers = 1
 let g:lightline = {
     \ 'colorscheme': 'wombat',
     \ 'tabline': {
