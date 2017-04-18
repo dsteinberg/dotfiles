@@ -142,7 +142,7 @@ nmap <Tab>   >>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
+" let g:completor_python_binary = '/usr/bin/python'
 
 " When vimrc is edited, reload it
 augroup filetype_vim
