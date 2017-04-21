@@ -44,12 +44,10 @@ Plug 'w0rp/ale'
 
 " Latex Environment
 "  NOTE: requires latekmk package
-Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'reedes/vim-wordy'
+Plug 'lervag/vimtex'
 
 " Nicer buffer information display 
-"  NOTE: requires pip package?
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'taohex/lightline-buffer'
 
@@ -181,13 +179,6 @@ nnoremap gB        :BuffergatorMruCycleNext<CR>
 " TagBar settings
 nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
-
-
-" LaTeX-Box Settings
-let g:LatexBox_viewer = 'evince'
-let g:LatexBox_ref_pattern = '\c\\\a*ref\*\?\_\s*{' " complete all ref commands
-let g:LatexBox_latexmk_options = '-bibtex' " put -c for continuous compilation
-let g:LatexBox_show_warnings = 0
 
 
 " Powerline settings
