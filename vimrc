@@ -10,12 +10,12 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Nice colour styles
-Plug 'jellybeans.vim'
-Plug 'jnurmine/Zenburn'
+" Plug 'jellybeans.vim'
+" Plug 'jnurmine/Zenburn'
 Plug 'w0ng/vim-hybrid'
-Plug '29decibel/codeschool-vim-theme'
-Plug 'vim-scripts/twilight'
-Plug 'jonathanfilip/vim-lucius'
+" Plug '29decibel/codeschool-vim-theme'
+" Plug 'vim-scripts/twilight'
+" Plug 'jonathanfilip/vim-lucius'
 
 " Better tab completion 
 "  NOTE: if you are using python, make sure you install all the JEDI packages,
@@ -113,11 +113,13 @@ set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
 noremap! jk <Esc>
 
+"screen lines instead of global lines
+nnoremap j gj
+nnoremap k gk
 
 " Fast buffer changing
 nnoremap <C-Tab>   :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
-
 
 " Remove temptation
 nnoremap <Up>    <NOP>
@@ -125,11 +127,9 @@ nnoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 
-
 " Change block indent continuously
 vmap <S-Tab> <gv
 vmap <Tab>   >gv 
-
 
 " One line indent
 nmap <S-Tab> <<
@@ -142,6 +142,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " let g:completor_python_binary = '/usr/bin/python'
 
+"
 " When vimrc is edited, reload it
 augroup filetype_vim
     autocmd!
@@ -209,8 +210,21 @@ autocmd FileType html,j2 setlocal omnifunc=htmlcomplete#CompleteTags
 
 
 " LaTeX editing setup
-autocmd FileType tex setlocal spell spelllang=en_au iskeyword+=:
 let g:tex_flavor='latex'
+augroup ft_tex
+    au!
+    au FileType tex setlocal formatoptions="" 
+    au FileType tex setlocal textwidth=0
+    au FileType tex setlocal wrapmargin=0
+    au FileType tex setlocal wrap
+    au FileType tex setlocal breakindent
+    au FileType tex setlocal shiftwidth=2 
+    au FileType tex setlocal tabstop=2 
+    au FileType tex setlocal spell spelllang=en_au
+    au FileType tex setlocal iskeyword+=: 
+    au FileType tex setlocal colorcolumn=
+    au FileType tex setlocal linebreak
+augroup END
 
 
 " TXT and MD editing setup
