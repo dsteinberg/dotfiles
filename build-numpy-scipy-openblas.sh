@@ -1,11 +1,14 @@
 #!/bin/sh
 set -e
-read -p "Numpy version [1.12.1]: " NUMPY_VERSION
-NUMPY_VERSION=${NUMPY_VERSION:-'1.12.1'}
-read -p "Scipy version [0.19.0]: " SCIPY_VERSION
-SCIPY_VERSION=${SCIPY_VERSION:-'0.19.0'}
-read -p "Number of build cores [1]:" BUILD_CPUS
-BUILD_CPUS=${BUILD_CPUS:-'1'}
+NUMPY_DEFAULT='1.12.1'
+SCIPY_DEFAULT='0.19.0'
+CPUS_DEFAULT='1'
+read -p "Numpy version [${NUMPY_DEFAULT}]: " NUMPY_VERSION
+NUMPY_VERSION=${NUMPY_VERSION:-$NUMPY_DEFAULT}
+read -p "Scipy version [${SCIPY_DEFAULT}]: " SCIPY_VERSION
+SCIPY_VERSION=${SCIPY_VERSION:-$SCIPY_DEFAULT}
+read -p "Number of build cores [${CPUS_DEFAULT}]:" BUILD_CPUS
+BUILD_CPUS=${BUILD_CPUS:-$CPUS_DEFAULT}
 
 echo "Numpy $NUMPY_VERSION, Scipy $SCIPY_VERSION, no. build cores $BUILD_CPUS."
 
@@ -23,6 +26,7 @@ fi
 
 echo "Installing cython and openblas"
 pacaur -S --needed openblas-lapack
+# pacaur -S --needed atlas-lapack
 pip install cython
 
 # Somehow each version of numpy/scipy have different archive formats...
@@ -91,7 +95,7 @@ cat > site.cfg <<- EOM
 library_dirs = /usr/lib
 EOM
 
-# python3 setup.py config_fc --fcompiler=gnu95 build -j4 # Fails on Arch!
+# python3 setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS} # Fails on Arch
 python3 setup.py config_fc --fcompiler=gnu95 build
 python3 setup.py install --optimize=1
 
