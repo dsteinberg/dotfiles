@@ -1,8 +1,11 @@
 #!/bin/sh
 set -e
+PYTHON_DEFAULT='3'
 NUMPY_DEFAULT='1.12.1'
 SCIPY_DEFAULT='0.19.0'
 CPUS_DEFAULT='1'
+read -p "Python version [${PYTHON_DEFAULT}]: " PYTHON_VERSION
+PYTHON_VERSION=${PYTHON_VERSION:-$PYTHON_DEFAULT}
 read -p "Numpy version [${NUMPY_DEFAULT}]: " NUMPY_VERSION
 NUMPY_VERSION=${NUMPY_VERSION:-$NUMPY_DEFAULT}
 read -p "Scipy version [${SCIPY_DEFAULT}]: " SCIPY_VERSION
@@ -10,6 +13,10 @@ SCIPY_VERSION=${SCIPY_VERSION:-$SCIPY_DEFAULT}
 read -p "Number of build cores [${CPUS_DEFAULT}]:" BUILD_CPUS
 BUILD_CPUS=${BUILD_CPUS:-$CPUS_DEFAULT}
 
+PIP='pip'$PYTHON_VERSION
+PYTHON='python'$PYTHON_VERSION
+
+echo "Using ${PYTHON} and ${PIP}"
 echo "Numpy $NUMPY_VERSION, Scipy $SCIPY_VERSION, no. build cores $BUILD_CPUS."
 
 if ! [[ -z "${VIRTUAL_ENV// }" ]]; then
@@ -27,7 +34,7 @@ fi
 echo "Installing cython and openblas"
 pacaur -S --needed openblas-lapack
 # pacaur -S --needed atlas-lapack
-pip install cython
+${PIP} install cython
 
 # Somehow each version of numpy/scipy have different archive formats...
 # http://askubuntu.com/questions/57981/command-line-archive-manager-extracter
@@ -60,7 +67,7 @@ export LDFLAGS="$LDFLAGS -shared"
 echo "Building and installing Numpy $NUMPY_VERSION"
 mkdir -p /tmp/src
 cd /tmp/src
-pip3 download --no-binary :all: numpy==${NUMPY_VERSION}
+${PIP} download --no-binary :all: numpy==${NUMPY_VERSION}
 extract numpy-${NUMPY_VERSION}.*
 cd /tmp/src/numpy-${NUMPY_VERSION}
 
@@ -79,13 +86,13 @@ lapack_libs = openblas
 library_dirs = /usr/lib
 EOM
 
-python3 setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS}
-python3 setup.py install --optimize=1
+${PYTHON} setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS}
+${PYTHON} setup.py install --optimize=1
 
 # SCIPY
 echo "Building and installing Scipy $SCIPY_VERSION"
 cd /tmp/src
-pip3 download --no-binary :all: scipy==${SCIPY_VERSION}
+${PIP} download --no-binary :all: scipy==${SCIPY_VERSION}
 extract scipy-${SCIPY_VERSION}.*
 cd /tmp/src/scipy-${SCIPY_VERSION}
 
@@ -96,7 +103,7 @@ library_dirs = /usr/lib
 EOM
 
 # python3 setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS} # Fails on Arch
-python3 setup.py config_fc --fcompiler=gnu95 build
-python3 setup.py install --optimize=1
+${PYTHON} setup.py config_fc --fcompiler=gnu95 build
+${PYTHON} setup.py install --optimize=1
 
 echo "All done!"
