@@ -100,11 +100,11 @@ colorscheme hybrid
 " GUI specific appearance
 if has('gui_running')
     set guioptions=agim
-    set guifont=Inconsolata\ for\ Powerline\ 14
-    " set guifont=Roboto\ Mono\ for\ Powerline\ 13
-    " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 13
-    " set guifont=Anonymous\ Pro\ for\ Powerline\ 14
-    " set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 13
+    set guifont=Inconsolata\ 14
+    " set guifont=Roboto\ Mono\ 13
+    " set guifont=Droid\ Sans\ Mono\ 13
+    " set guifont=Anonymous\ Pro\ 14
+    " set guifont=Source\ Code\ Pro\ Medium\ 13
 endif
 
 
