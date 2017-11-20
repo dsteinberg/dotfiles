@@ -90,6 +90,7 @@ EOM
 ${PYTHON} setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS}
 ${PYTHON} setup.py bdist_wheel
 cp dist/*.whl $WD
+${PYTHON} setup.py install --optimize=1  # Needed for scipy
 
 # SCIPY
 echo "Building and installing Scipy $SCIPY_VERSION"
@@ -108,6 +109,6 @@ EOM
 ${PYTHON} setup.py config_fc --fcompiler=gnu95 build
 ${PYTHON} setup.py bdist_wheel
 cp dist/*.whl $WD
-
+${PYTHON} setup.py install --optimize=1
 
 echo "All done!"
