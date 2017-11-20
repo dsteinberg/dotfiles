@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+WD=$(pwd)
 PYTHON_DEFAULT='3'
 NUMPY_DEFAULT='1.13.3'
 SCIPY_DEFAULT='1.0.0'
@@ -87,7 +88,8 @@ library_dirs = /usr/lib
 EOM
 
 ${PYTHON} setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS}
-${PYTHON} setup.py install --optimize=1
+${PYTHON} setup.py bdist_wheel
+cp dist/*.whl $WD
 
 # SCIPY
 echo "Building and installing Scipy $SCIPY_VERSION"
@@ -104,6 +106,8 @@ EOM
 
 # python3 setup.py config_fc --fcompiler=gnu95 build -j ${BUILD_CPUS} # Fails on Arch
 ${PYTHON} setup.py config_fc --fcompiler=gnu95 build
-${PYTHON} setup.py install --optimize=1
+${PYTHON} setup.py bdist_wheel
+cp dist/*.whl $WD
+
 
 echo "All done!"
