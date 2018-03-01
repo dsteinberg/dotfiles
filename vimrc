@@ -49,7 +49,7 @@ Plug 'lervag/vimtex'
 
 " Nicer buffer information display 
 Plug 'itchyny/lightline.vim'
-Plug 'taohex/lightline-buffer'
+
 
 " List tags, object properties etc 
 " NOTE: needs exuberant-ctags packages
@@ -182,24 +182,16 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" Powerline settings
+" lightline settings
 let g:lightline = {
     \ 'colorscheme': 'wombat',
-    \ 'tabline': {
-        \ 'left': [[ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ],],
-        \ 'right': [[ 'close' ],],
-        \ },
-    \ 'component_expand': {
-        \ 'buffercurrent': 'lightline#buffer#buffercurrent2',
-        \ },
-    \ 'component_type': {
-        \ 'buffercurrent': 'tabsel',
-        \ },
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
     \ 'component_function': {
-        \ 'bufferbefore': 'lightline#buffer#bufferbefore',
-        \ 'bufferafter': 'lightline#buffer#bufferafter',
-        \ 'bufferinfo': 'lightline#buffer#bufferinfo',
-        \ },
+    \   'gitbranch': 'fugitive#head'
+    \ },
     \ }
 
 
