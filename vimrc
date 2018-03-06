@@ -49,7 +49,7 @@ Plug 'lervag/vimtex'
 
 " Nicer buffer information display 
 Plug 'itchyny/lightline.vim'
-
+Plug 'mgee/lightline-bufferline'
 
 " List tags, object properties etc 
 " NOTE: needs exuberant-ctags packages
@@ -192,8 +192,16 @@ let g:lightline = {
     \ 'component_function': {
     \   'gitbranch': 'fugitive#head'
     \ },
+    \ 'tabline' : {
+    \   'left': [['buffers']], 'right': [['close']]
+    \ },
+    \ 'component_expand' : {
+    \   'buffers': 'lightline#bufferline#buffers' 
+    \ },
+    \ 'component_type' : {
+    \   'buffers': 'tabsel'
     \ }
-
+    \ }
 
 " HTML editing setup
 autocmd BufNewFile,BufRead *.j2 set filetype=html
