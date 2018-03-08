@@ -77,8 +77,8 @@ export CUDA_HOME=/opt/cuda
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
+
+# pacman/yay aliases
 alias pacall="LC_ALL=C pacman -Qi | sed -n '/^Name[^:]*: \(.*\)/{s//\1 /;x};/^Installed[^:]*: \(.*\)/{s//\1/;H;x;s/\n//;p}' | sort -nk2 | column -t"
 alias pacupg='yay -Syu' # Synchronize with repositories before upgrading packages that are out of date on the local system.
 alias pacin='yay -S' # Install specific package(s) from the repositories
@@ -98,3 +98,7 @@ alias pacorph='sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
 # The Lachy switch
 alias asdf='setxkbmap dvorak'
 alias aoeu='setxkbmap us'
+
+# turn on/off GPU for CUDA (as opposed to using bumblebee optirun)
+alias cudaon="sudo tee /proc/acpi/bbswitch <<< ON"
+alias cudaoff="sudo tee /proc/acpi/bbswitch <<< OFF"
