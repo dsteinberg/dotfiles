@@ -113,7 +113,7 @@ set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
 noremap! jk <Esc>
 
-"screen lines instead of global lines
+" Screen lines instead of global lines
 nnoremap j gj
 nnoremap k gk
 
@@ -142,7 +142,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " let g:completor_python_binary = '/usr/bin/python'
 
-"
+
 " When vimrc is edited, reload it
 augroup filetype_vim
     autocmd!
@@ -182,7 +182,7 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 let g:tagbar_left = 1
 
 
-" lightline settings
+" Lightline settings
 let g:lightline = {
     \ 'colorscheme': 'wombat',
     \ 'active': {
@@ -225,6 +225,13 @@ augroup ft_tex
     au FileType tex setlocal colorcolumn=
     au FileType tex setlocal linebreak
 augroup END
+let g:vimtex_compiler_latexmk = {
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ]}
 
 
 " TXT and MD editing setup
