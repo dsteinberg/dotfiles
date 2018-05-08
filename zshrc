@@ -101,4 +101,4 @@ alias aoeu='setxkbmap us'
 
 # turn on/off GPU for CUDA (as opposed to using bumblebee optirun)
 alias cudaon="sudo tee /proc/acpi/bbswitch <<< ON"
-alias cudaoff="sudo tee /proc/acpi/bbswitch <<< OFF"
+alias cudaoff="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"
