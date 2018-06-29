@@ -85,7 +85,7 @@ set ttyfast
 set lazyredraw
 set number
 set showtabline=2
-set t_Co=256        " Approx GUI colour in terminals
+"set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
 set background=dark
 " set relativenumber
@@ -108,18 +108,34 @@ if has('gui_running')
 endif
 
 
+" Neovim settings
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set mouse=a
+endif
+
+
+" Buffer setttings with X
+" NOTE: this requires the 'xsel' package
+set clipboard=unnamed,unnamedplus
+
+
 " Misc Vim Settings
 set pastetoggle=<F2> " Get GUI pasting working
 set autochdir        " Make vim automatically change dir to buffer's dir
 noremap! jk <Esc>
 
+
 " Screen lines instead of global lines
 nnoremap j gj
 nnoremap k gk
 
+
 " Fast buffer changing
 nnoremap <C-Tab>   :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
+
 
 " Remove temptation
 nnoremap <Up>    <NOP>
@@ -127,9 +143,11 @@ nnoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 
+
 " Change block indent continuously
 vmap <S-Tab> <gv
 vmap <Tab>   >gv 
+
 
 " One line indent
 nmap <S-Tab> <<
