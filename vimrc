@@ -61,6 +61,9 @@ Plug 'jeetsukumaran/vim-buffergator'
 " Git Integration
 Plug 'tpope/vim-fugitive'
 
+" Always highlight enclosing parantheses
+Plug 'Yggdroot/hiPairs'
+
 call plug#end()
 
 
@@ -97,6 +100,20 @@ colorscheme hybrid
 " colorscheme lucius
 " colorscheme jellybeans
 " highlight ColorColumn guibg=#292929
+
+
+" Highlight paratheses
+let g:hiPairs_hl_matchPair   = { 'term'   : 'bold',
+            \                    'guifg'  : 'Green',
+            \                    'cterm'  : 'bold',
+            \                    'ctermfg': 'Green'
+            \                  }
+let g:hiPairs_hl_unmatchPair = { 'term'   : 'bold',
+            \                    'guifg'  : 'Red',
+            \                    'cterm'  : 'bold',
+            \                    'ctermfg': 'Red'
+            \                  }               
+
 
 " GUI specific appearance
 if has('gui_running')
@@ -222,10 +239,12 @@ let g:lightline = {
     \ }
     \ }
 
+"
 " HTML editing setup
 autocmd BufNewFile,BufRead *.j2 set filetype=html
 autocmd FileType html setlocal spell spelllang=en_au
 autocmd FileType html,j2 setlocal omnifunc=htmlcomplete#CompleteTags
+
 
 " Haskell editing setup
 autocmd FileType haskell setlocal tabstop=2 shiftwidth=2
