@@ -88,6 +88,7 @@ set showtabline=2
 "set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
 set background=dark
+set cursorline
 " set relativenumber
 " colorscheme zenburn
 " colorscheme codeschool
@@ -225,6 +226,9 @@ let g:lightline = {
 autocmd BufNewFile,BufRead *.j2 set filetype=html
 autocmd FileType html setlocal spell spelllang=en_au
 autocmd FileType html,j2 setlocal omnifunc=htmlcomplete#CompleteTags
+
+" Haskell editing setup
+autocmd FileType haskell setlocal tabstop=2 shiftwidth=2
 
 
 " LaTeX editing setup
