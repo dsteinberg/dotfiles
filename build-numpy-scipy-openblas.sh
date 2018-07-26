@@ -2,7 +2,7 @@
 set -e
 WD=$(pwd)
 PYTHON_DEFAULT='3'
-NUMPY_DEFAULT='1.14.3'
+NUMPY_DEFAULT='1.15.0'
 SCIPY_DEFAULT='1.1.0'
 CPUS_DEFAULT='1'
 read -p "Python version [${PYTHON_DEFAULT}]: " PYTHON_VERSION
@@ -32,8 +32,8 @@ else
     fi
 fi
 
-echo "Installing cython and openblas"
-yay -S --needed openblas-lapack
+echo "Installing fortran, cython and openblas"
+yay -S --needed gcc-fortran openblas-lapack
 # pacaur -S --needed atlas-lapack
 ${PIP} install cython
 
