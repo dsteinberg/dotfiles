@@ -33,7 +33,7 @@ else
 fi
 
 echo "Installing fortran, cython and openblas"
-yay -S --needed gcc-fortran openblas-lapack
+yay -S --norebuild gcc-fortran openblas-lapack
 # pacaur -S --needed atlas-lapack
 ${PIP} install cython
 
