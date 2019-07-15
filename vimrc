@@ -20,10 +20,15 @@ Plug 'w0ng/vim-hybrid'
 " Better tab completion 
 "  NOTE: if you are using python, make sure you install all the JEDI packages,
 "   (python2) and ALSO python-vim (python 2)!!! 
-"  NOTE: You may need to install python-vim from pip (and pip2)
-"  NOTE: On Arch, you may need the aur/libtinfo package for an appropriate
-"   simlink
-Plug 'maralla/completor.vim'
+"  NOTE: for neovim on Arch you will need the python-neovim package, AND/OR the
+"  pynvim package
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " Python Documentation Viewer
 Plug 'fs111/pydoc.vim'
@@ -173,6 +178,7 @@ nmap <Tab>   >>
 
 
 " Completion
+let g:deoplete#enable_at_startup = 1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
