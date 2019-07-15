@@ -137,6 +137,9 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   set mouse=a
 endif
+if exists('g:GtkGuiLoaded')
+  let g:GuiInternalClipboard=1
+endif
 
 
 " Buffer setttings with X
@@ -178,11 +181,10 @@ nmap <Tab>   >>
 
 
 " Completion
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-" let g:completor_python_binary = '/usr/bin/python'
 
 
 " When vimrc is edited, reload it
