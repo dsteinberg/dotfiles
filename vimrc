@@ -131,11 +131,11 @@ let g:hiPairs_hl_unmatchPair = { 'term'   : 'bold',
 " GUI specific appearance
 if has('gui_running')
     set guioptions=agim
-    set guifont=Inconsolata\ 14
+    " set guifont=Inconsolata\ 14
     " set guifont=Roboto\ Mono\ 13
     " set guifont=Droid\ Sans\ Mono\ 13
     " set guifont=Anonymous\ Pro\ 14
-    " set guifont=Source\ Code\ Pro\ Medium\ 13
+    set guifont=Source\ Code\ Pro\ Medium\ 13
 endif
 
 
