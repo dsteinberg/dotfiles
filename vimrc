@@ -26,23 +26,20 @@ Plug 'w0ng/vim-hybrid'
 " Plug 'jonathanfilip/vim-lucius'
 
 " Better tab completion 
-"  NOTE: if you are using python, make sure you install all the JEDI packages,
-"   (python2) and ALSO python-vim (python 2)!!! 
+"  NOTE: if you are using python, make sure you install all the JEDI packages
 "  NOTE: for neovim on Arch you will need the python-neovim package, AND/OR the
-"  pynvim package
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
+"  pynvim package from pip (if in a virtualenvironment)
+if !has('nvim')
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
+if !has('nvim') " Vim 8 only
+	pythonx import pynvim
+endif
 
-" Deoplete plugin for jedi - requires jedi installed
-Plug 'deoplete-plugins/deoplete-jedi'
-
-" Python Documentation Viewer
-Plug 'fs111/pydoc.vim'
+" Completor plugins 
+Plug 'ncm2/ncm2-jedi'  " for jedi - requires jedi installed
 
 " Python PEP8 indentation
 Plug 'hynek/vim-python-pep8-indent'
@@ -118,19 +115,6 @@ colorscheme hybrid
 " highlight ColorColumn guibg=#292929
 
 
-" Highlight paratheses
-let g:hiPairs_hl_matchPair   = { 'term'   : 'bold',
-            \                    'guifg'  : 'Green',
-            \                    'cterm'  : 'bold',
-            \                    'ctermfg': 'Green'
-            \                  }
-let g:hiPairs_hl_unmatchPair = { 'term'   : 'bold',
-            \                    'guifg'  : 'Red',
-            \                    'cterm'  : 'bold',
-            \                    'ctermfg': 'Red'
-            \                  }               
-
-
 " GUI specific appearance
 if has('gui_running')
     set guioptions=agim
@@ -192,18 +176,14 @@ nmap <Tab>   >>
 
 
 " Completion
-let g:deoplete#enable_at_startup=1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-
-" When vimrc is edited, reload it
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd bufwritepost .vimrc source ~/.vimrc
-augroup END
+" let g:deoplete#enable_at_startup=1
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 
 
 " Syntax Checking and Documentation
@@ -214,6 +194,19 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " NERDTree file browser
 nnoremap <leader>f :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
+
+
+" Highlight paratheses
+let g:hiPairs_hl_matchPair   = { 'term'   : 'bold',
+            \                    'guifg'  : 'Green',
+            \                    'cterm'  : 'bold',
+            \                    'ctermfg': 'Green'
+            \                  }
+let g:hiPairs_hl_unmatchPair = { 'term'   : 'bold',
+            \                    'guifg'  : 'Red',
+            \                    'cterm'  : 'bold',
+            \                    'ctermfg': 'Red'
+            \                  }               
 
 
 " If you prefer the Omni-Completion tip window to close when a selection is
