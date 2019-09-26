@@ -87,8 +87,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=4
-set smarttab "tab width determined by shiftwidth
+set smarttab  " tab width determined by shiftwidth
 syntax on
+set spell spelllang=en_au  " spelling always on, even in code comments  
 set foldmethod=indent
 set foldlevel=99
 
@@ -137,7 +138,7 @@ if exists('g:GtkGuiLoaded')
 endif
 
 
-" Buffer setttings with X
+" Buffer settings with X
 " NOTE: this requires the 'xsel' package
 set clipboard=unnamed,unnamedplus
 
@@ -196,7 +197,7 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
 
 
-" Highlight paratheses
+" Highlight parentheses
 let g:hiPairs_hl_matchPair   = { 'term'   : 'bold',
             \                    'guifg'  : 'Green',
             \                    'cterm'  : 'bold',
@@ -285,12 +286,6 @@ let g:vimtex_compiler_latexmk = {
       \   '-synctex=1',
       \   '-interaction=nonstopmode',
       \ ]}
-
-
-" TXT and MD editing setup
-autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_au
-autocmd FileType markdown setlocal spell spelllang=en_au
-autocmd FileType rst setlocal spell spelllang=en_au
 
 
 " Make tmp dirs in standard places
