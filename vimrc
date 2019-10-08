@@ -27,8 +27,10 @@ Plug 'w0ng/vim-hybrid'
 
 " Better tab completion 
 "  NOTE: if you are using python, make sure you install all the JEDI packages
-"  NOTE: for neovim on Arch you will need the python-neovim package, AND/OR the
-"  pynvim package from pip (if in a virtualenvironment)
+"  NOTE: for neovim on Arch you will need the python-neovim package, OR the
+"  pynvim package from pip (if in a virtualenvironment), OR if using pipenv, I
+"  had to run 'PIP_NO_BINARY="greenlet" pipenv install pynvim'
+"
 if !has('nvim')
   Plug 'roxma/vim-hug-neovim-rpc'
 endif

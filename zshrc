@@ -46,7 +46,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow virtualenvwrapper)
+plugins=(git git-flow pipenv)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -96,3 +96,8 @@ alias aoeu='setxkbmap us'
 # turn on/off GPU for CUDA (as opposed to using bumblebee optirun)
 alias cudaon="sudo tee /proc/acpi/bbswitch <<< ON"
 alias cudaoff="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"
+
+# Pipenv Paths
+export PIPENV_VENV_IN_PROJECT=1
+eval "$(pipenv --completion)"
+
