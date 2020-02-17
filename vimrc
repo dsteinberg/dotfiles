@@ -120,7 +120,7 @@ colorscheme hybrid
 
 " GUI specific appearance
 if has('gui_running')
-    set guioptions=agim
+    set guioptions=agi
     set guifont=Inconsolata\ 14
     " set guifont=Roboto\ Mono\ 13
     " set guifont=Droid\ Sans\ Mono\ 13
@@ -259,6 +259,7 @@ let g:lightline = {
 autocmd BufNewFile,BufRead *.j2 set filetype=html
 autocmd FileType html setlocal spell spelllang=en_au
 autocmd FileType html,j2 setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 " Haskell editing setup
