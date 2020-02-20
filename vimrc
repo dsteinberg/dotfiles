@@ -31,21 +31,13 @@ Plug 'w0ng/vim-hybrid'
 "  pynvim package from pip (if in a virtualenvironment), OR if using pipenv, I
 "  had to run 'PIP_NO_BINARY="greenlet" pipenv install pynvim'
 
-" if !has('nvim')
-  " Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2'
-" if !has('nvim') " Vim 8 only
-" 	pythonx import pynvim
-" endif
-
-" Completor plugins 
-" Plug 'ncm2/ncm2-jedi'  " for jedi - requires jedi installed
-
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" NOTE, for python, one this is setup run :CocInstall coc-python
+" NOTE, for language integrations, type these 
+" - python, :CocInstall coc-python
+" - latex, :CocInstall coc-vimtex
+" - html, :CocInstall coc-html
+" - colors, :CocInstall coc-highlight  previews colors
 
 " Python PEP8 indentation
 Plug 'hynek/vim-python-pep8-indent'
@@ -56,10 +48,6 @@ Plug 'tpope/vim-commentary'
 " File Browser and finder
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-
-" Syntax checker 
-" NOTE: requires flake8 packages, python3-flake8, python-flake8, pyflakes
-" Plug 'w0rp/ale'
 
 " Latex Environment
 "  NOTE: requires latekmk package
@@ -178,17 +166,6 @@ nmap <S-Tab> <<
 nmap <Tab>   >>
 
 
-" Completion
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-" enable ncm2 for all buffers
-" autocmd BufEnter * call ncm2#enable_for_buffer()
-" IMPORTANT: :help Ncm2PopupOpen for more information
-" set completeopt=noinsert,menuone,noselect
-
-
 " Coc-completion configuration
 
 " if hidden is not set, TextEdit might fail.
@@ -224,14 +201,19 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" Use <c-x> to trigger completion.
+inoremap <silent><expr> <c-x> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Old-completion settings
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
