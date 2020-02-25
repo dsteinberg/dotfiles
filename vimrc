@@ -25,11 +25,8 @@ Plug 'w0ng/vim-hybrid'
 " Plug 'vim-scripts/twilight'
 " Plug 'jonathanfilip/vim-lucius'
 
-" Better tab completion 
-"  NOTE: if you are using python, make sure you install all the JEDI packages
-"  NOTE: for neovim on Arch you will need the python-neovim package, OR the
-"  pynvim package from pip (if in a virtualenvironment), OR if using pipenv, I
-"  had to run 'PIP_NO_BINARY="greenlet" pipenv install pynvim'
+" Automatic bracket completion
+ Plug 'Raimondi/delimitMate'
 
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -157,13 +154,12 @@ nnoremap <Right> <NOP>
 
 
 " Change block indent continuously
-vmap <S-Tab> <gv
-vmap <Tab>   >gv 
-
+vmap < <gv
+vmap > >gv 
 
 " One line indent
-nmap <S-Tab> <<
-nmap <Tab>   >>
+nmap < <<
+nmap > >>
 
 
 " Coc-completion configuration
