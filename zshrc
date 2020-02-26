@@ -98,6 +98,7 @@ alias cudaon="sudo tee /proc/acpi/bbswitch <<< ON"
 alias cudaoff="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"
 
 # Fancy ls
+#   pacin lsd ttf-nerd-fonts-symbols
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
