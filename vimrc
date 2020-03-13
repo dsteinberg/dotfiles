@@ -34,6 +34,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " - python, :CocInstall coc-python
 " - latex, :CocInstall coc-vimtex
 " - html, :CocInstall coc-html
+" - css, :CocInstall coc-css
 " - colors, :CocInstall coc-highlight  previews colors
 
 " Python PEP8 indentation
@@ -108,10 +109,9 @@ colorscheme hybrid
 
 
 " GUI specific appearance
-if has('gui_running')
-    set guioptions=agi
-    set guifont=Inconsolata\ 14
-endif
+set guioptions=agi
+set guifont=Inconsolata\ Nerd\ Font:h22
+let g:neovide_cursor_vfx_mode = "railgun"
 
 
 " Neovim settings
@@ -171,17 +171,11 @@ set hidden
 set nobackup
 set nowritebackup
 
-" Better display for messages
-" set cmdheight=2
-
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
-
-" always show signcolumns
-" set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other
@@ -205,11 +199,6 @@ inoremap <silent><expr> <c-x> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Old-completion settings
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -302,11 +291,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-
-" Syntax Checking and Documentation
-" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 " NERDTree file browser

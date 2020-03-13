@@ -105,6 +105,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+# Make neovide run as background process in terminal
+nv() { neovide "$1" &; } 
+
 # Pipenv Paths
 export PIPENV_VENV_IN_PROJECT=1
 eval "$(pipenv --completion)"
