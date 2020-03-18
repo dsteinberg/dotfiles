@@ -35,6 +35,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " - latex, :CocInstall coc-vimtex
 " - html, :CocInstall coc-html
 " - css, :CocInstall coc-css
+" - json, :CocInstall coc-json
 " - colors, :CocInstall coc-highlight  previews colors
 
 " Python PEP8 indentation
@@ -111,7 +112,7 @@ colorscheme hybrid
 " GUI specific appearance
 set guioptions=agi
 " set guifont=Inconsolata:h22
-set guifont=Fira\ Code\ Retina:h18
+set guifont=Fira\ Code\ Light:h18
 let g:neovide_cursor_vfx_mode = "railgun"
 
 
