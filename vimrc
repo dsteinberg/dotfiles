@@ -26,13 +26,14 @@ Plug 'w0ng/vim-hybrid'
 " Plug 'jonathanfilip/vim-lucius'
 
 " Automatic bracket completion
- Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " NOTE, for language integrations, type these 
 " - python, :CocInstall coc-python
 " - latex, :CocInstall coc-vimtex
+" - texlab, :CocInstall coc-texlab  (requires pacin texlab)
 " - html, :CocInstall coc-html
 " - css, :CocInstall coc-css
 " - json, :CocInstall coc-json
@@ -95,7 +96,6 @@ set ttyfast
 set lazyredraw
 set number
 set showtabline=2
-"set t_Co=256        " Approx GUI colour in terminals
 set laststatus=2    " Make sure status line always shows
 set background=dark
 set cursorline
@@ -111,8 +111,12 @@ colorscheme hybrid
 
 " GUI specific appearance
 set guioptions=agi
-" set guifont=Inconsolata:h22
-set guifont=Fira\ Code\ Light:h18
+" set guifont=Ligconsolata:h22
+if has('gui_gtk3')
+    set guifont=Fira\ Code\ Light\ 12
+else
+    set guifont=Fira\ Code\ Light:h28
+endif
 let g:neovide_cursor_vfx_mode = "railgun"
 
 
@@ -355,7 +359,7 @@ let g:lightline = {
     \ }
     \ }
 
-"
+
 " HTML editing setup
 autocmd BufNewFile,BufRead *.j2 set filetype=html
 autocmd FileType html setlocal spell spelllang=en_au
